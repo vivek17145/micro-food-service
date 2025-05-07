@@ -1,0 +1,37 @@
+package com.foodie.food.modal;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.foodie.food.enums.FoodType;
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "food_service_item")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class FoodEntity {
+
+    @Id
+    private String id;
+
+    private String title;
+
+    private String description;
+
+    private Integer quantity;
+
+    private Boolean outOfStock;
+
+    @Enumerated(EnumType.STRING)
+    private FoodType foodType = FoodType.VEG; // E.g., "Veg", "Non-Veg", "Dessert", etc.
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "food_category_id", nullable = false)
+    private FoodCategory foodCategory;
+
+    @Column(nullable = false)
+    private String restaurantId;
+}

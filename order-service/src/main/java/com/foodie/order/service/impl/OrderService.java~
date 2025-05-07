@@ -1,0 +1,11 @@
+package com.foodie.order.service.impl;
+
+import java.util.List;
+
+public interface OrderService {
+    List<OrderDto> getAllOrders();
+    OrderDto getOrderById(String id);
+    OrderDto createOrder(OrderDto orderDto);
+    void deleteOrder(String id);
+}
+

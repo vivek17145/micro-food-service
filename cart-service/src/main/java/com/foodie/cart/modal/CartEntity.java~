@@ -1,0 +1,24 @@
+package com.foodie.cart.modal;
+
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
+
+@Setter
+@Getter
+@Entity
+@Table(name = "cart")
+public class CartEntity {
+    private String id;
+    private String userId;
+    private String productId;
+    private int quantity;
+    private double price;
+    @ElementCollection
+    private List<String> itemIds;
+    private double totalPrice;
+}

@@ -1,0 +1,16 @@
+package com.foodie.food.service;
+
+import com.foodie.food.dto.FoodDto;
+import com.foodie.food.modal.FoodEntity;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+@Service
+public interface FoodService {
+    FoodEntity saveFood(FoodEntity foodEntity);
+    FoodEntity getFoodById(String id);
+    List<FoodEntity> getAllFoods();
+    List<FoodEntity> getFoodsByRestaurantId(String restaurantId);
+    FoodEntity updateFood(String id, FoodEntity foodEntity);
+    void deleteFood(String id);
+}
